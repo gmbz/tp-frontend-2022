@@ -7,7 +7,7 @@ import { TournamentListComponent } from './components/tournament/tournament-list
 const routes: Routes = [
   {
     path: 'user',
-    loadChildren: () => import('./user/user.module').then((x) => x.UserModule),
+    loadChildren: () => import('../app/components/user/user.module').then((x) => x.UserModule),
   },
   { path: 'tournaments', component: TournamentListComponent },
   {
