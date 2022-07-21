@@ -1,3 +1,4 @@
+import { Summoner } from './summoner';
 import { User } from './user';
 
 export interface Tournament {
@@ -9,4 +10,5 @@ export interface Tournament {
   fechaInicio: Date;
   fechaFin: Date;
   autor?: User;
+  participantes?: Summoner[];
 }

@@ -1,21 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
+
 import { TournamentCreateComponent } from './components/tournament/tournament-create/tournament-create.component';
 import { TournamentListComponent } from './components/tournament/tournament-list/tournament-list.component';
 
 const routes: Routes = [
   {
     path: 'user',
-    loadChildren: () => import('./components/user/user.module').then((x) => x.UserModule),
+    loadChildren: () =>
+      import('./components/user/user.module').then((x) => x.UserModule),
   },
-  { path: 'tournaments', component: TournamentListComponent },
   {
-    path: 'tournaments/create',
-    component: TournamentCreateComponent,
-    canActivate: [AuthGuard],
+    path: 'tournaments',
+    loadChildren: () =>
+      import('./components/tournament/tournament.module').then(
+        (x) => x.TournamentModule
+      ),
   },
-  { path: '**', redirectTo: '', pathMatch: 'full' },
+  // { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
 @NgModule({

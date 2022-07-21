@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { tap } from 'rxjs';
+
 import { TournamentsService } from 'src/app/services/tournaments.service';
 import { Tournament } from 'src/app/models/tournaments';
-import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-tournament-list',

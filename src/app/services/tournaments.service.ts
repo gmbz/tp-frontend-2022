@@ -18,4 +18,8 @@ export class TournamentsService {
   createTournament(tournament): Observable<any> {
     return this.httpClient.post(`${this.SERVER}/`, tournament);
   }
+
+  getTournamentById(id): Observable<Tournament> {
+    return this.httpClient.get<Tournament>(`${this.SERVER}/${id}`);
+  }
 }
