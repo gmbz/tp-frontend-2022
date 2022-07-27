@@ -1,12 +1,12 @@
-import { League } from './league';
 import { Summoner } from './summoner';
 
-export interface SummonerLeague {
+export interface Ranked {
   queueType: string;
+  tier: string;
+  tierName: string;
   rank: string;
   wins: string;
   losses: string;
   leaguePoints: number;
   summoner: Summoner;
-  league: League;
 }

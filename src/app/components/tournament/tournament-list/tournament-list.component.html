@@ -17,6 +17,7 @@
       <th scope="col">Nombre torneo</th>
       <th scope="col">Creador</th>
       <th scope="col">Premio</th>
+      <th scope="col">Rango Minimo</th>
       <th scope="col">Fecha inicio</th>
       <th scope="col">Fecha fin</th>
       <th scope="col"></th>
@@ -30,9 +31,25 @@
       <td>{{ tournament.nombre }}</td>
       <td>{{ tournament.autor?.username }}</td>
       <td>{{ tournament.premio }}</td>
-      <td>{{ tournament.fechaInicio | date: "shortDate" }}</td>
-      <td>{{ tournament.fechaFin | date: "shortDate" }}</td>
-      <td><a [routerLink]="['/tournaments',tournament._id]" class="btn btn-primary">Ver</a></td>
+      <td>
+        <img
+          src="../../../../assets/rank-icons/{{
+            tournament.clasificacionMinima?.name | lowercase
+          }}.png"
+          alt="{{ tournament.clasificacionMinima?.name | lowercase }} icono"
+          style="width: 35px"
+        />
+        <span>{{ tournament.clasificacionMinima?.name | titlecase }}</span>
+      </td>
+      <td>{{ tournament.fechaInicio | date: "dd/MM/yyyy" }}</td>
+      <td>{{ tournament.fechaFin | date: "dd/MM/yyyy" }}</td>
+      <td>
+        <a
+          [routerLink]="['/tournaments', tournament._id]"
+          class="btn btn-primary"
+          >Ver</a
+        >
+      </td>
     </tr>
   </tbody>
 </table>

@@ -1,3 +1,4 @@
+import { League } from './league';
 import { Summoner } from './summoner';
 import { User } from './user';
 
@@ -9,6 +10,7 @@ export interface Tournament {
   cupo: number;
   fechaInicio: Date;
   fechaFin: Date;
+  clasificacionMinima?: League;
   autor?: User;
   participantes?: Summoner[];
 }

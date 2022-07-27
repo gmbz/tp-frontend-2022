@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { tap } from 'rxjs';
+import { League } from 'src/app/models/league';
 import { Tournament } from 'src/app/models/tournaments';
+import { LeagueService } from 'src/app/services/league.service';
 import { TournamentsService } from 'src/app/services/tournaments.service';
 
 @Component({
@@ -12,9 +15,11 @@ import { TournamentsService } from 'src/app/services/tournaments.service';
 })
 export class TournamentCreateComponent implements OnInit {
   tournamentForm: FormGroup;
+  leagues!: League[];
 
   constructor(
     private tournamentService: TournamentsService,
+    private leagueService: LeagueService,
     private router: Router,
     private formBuilder: FormBuilder,
     private toastr: ToastrService
@@ -25,11 +30,14 @@ export class TournamentCreateComponent implements OnInit {
       cupo: ['', Validators.required],
       fechaInicio: ['', Validators.required],
       fechaFin: ['', Validators.required],
+      clasificacionMinima: ['', Validators.required],
       privado: [false],
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getAllLeagues();
+   }
 
   create() {
     const tournament: Tournament = {
@@ -39,6 +47,7 @@ export class TournamentCreateComponent implements OnInit {
       premio: this.tournamentForm.get('premio')?.value,
       fechaInicio: this.tournamentForm.get('fechaInicio')?.value,
       fechaFin: this.tournamentForm.get('fechaFin')?.value,
+      clasificacionMinima: this.tournamentForm.get('clasificacionMinima')?.value,
     };
     this.tournamentService.createTournament(tournament).subscribe({
       next: (res) => {
@@ -48,5 +57,11 @@ export class TournamentCreateComponent implements OnInit {
       },
       error: (err) => console.log(err),
     });
+  }
+
+  getAllLeagues() {
+    this.leagueService.getAllLeagues().pipe(
+      tap((leagues: League[]) => this.leagues = leagues)
+    ).subscribe();
   }
 }

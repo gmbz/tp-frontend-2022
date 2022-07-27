@@ -1,8 +1,10 @@
-import { SummonerLeague } from './summonerLeague';
+import { Ranked } from './ranked';
 
 export interface Summoner {
   _id?: string;
+  summonerId: string;
   summonerName: string;
   summonerLevel: string;
-  leagues: SummonerLeague[];
+  rankedSolo: Ranked;
+  rankedFlex: Ranked;
 }

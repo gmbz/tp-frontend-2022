@@ -41,33 +41,17 @@
         <tr *ngFor="let participante of tournament?.participantes">
           <td>{{ participante.summonerName }}</td>
           <td>
-            <div *ngFor="let league of participante.leagues">
-              <div *ngIf="league.queueType == 'RANKED_SOLO_5x5'">
-                <img src="../../../../assets/rank-icons/{{ league.league?.name | lowercase }}.png" alt="{{ league.league?.name | lowercase }} icono" style="width: 35px;">
-                <span>{{ league.league?.name | titlecase }} {{ league.rank }} ({{ league.leaguePoints}})</span>
-              </div>
-            </div>
+            <img src="../../../../assets/rank-icons/{{ participante.rankedSolo.tierName| lowercase }}.png" alt="{{ participante.rankedSolo.tierName | lowercase }} icono" style="width: 35px;">
+            <span>{{ participante.rankedSolo.tierName | titlecase }} {{ participante.rankedSolo.rank }} ({{ participante.rankedSolo.leaguePoints }})</span>
           </td>
           <td>
-            <div *ngFor="let league of participante.leagues">
-              <div *ngIf="league.queueType == 'RANKED_SOLO_5x5'">
-                {{ league.wins + league.losses }}
-              </div>
-            </div>
+            {{ participante.rankedSolo.wins + participante.rankedSolo.losses }}
           </td>
           <td>
-            <div *ngFor="let league of participante.leagues">
-              <div *ngIf="league.queueType == 'RANKED_SOLO_5x5'">
-                {{ league.wins }}
-              </div>
-            </div>
+            {{ participante.rankedSolo.wins }}
           </td>
           <td>
-            <div *ngFor="let league of participante.leagues">
-              <div *ngIf="league.queueType == 'RANKED_SOLO_5x5'">
-                {{ league.losses }}
-              </div>
-            </div>
+            {{ participante.rankedSolo.losses }}
           </td>
         </tr>
       </tbody>

@@ -71,6 +71,37 @@
     </small>
   </div>
   <div class="form-group">
+    <label for="inputClasificacionMinima"
+      >Rango mínimo necesario para participar</label
+    >
+    <select
+      class="form-select"
+      aria-label="Select Clasificacion Minima"
+      id="inputClasificacionMinima"
+      formControlName="clasificacionMinima"
+      name="clasificacionMinima"
+      placeholder="Seleccionar clasificaion mínima requerida"
+    >
+      <option value="{{ league.tier }}" *ngFor="let league of leagues">
+        <img
+          src="../../../../assets/rank-icons/{{ league.name | lowercase }}.png"
+          alt="{{ league.name | lowercase }} icono"
+          style="width: 35px"
+        />
+        <span>{{ league.name | titlecase }}</span>
+      </option>
+    </select>
+    <small
+      class="text-danger"
+      *ngIf="
+        tournamentForm.get('clasificacionMinima')?.hasError('required') &&
+        tournamentForm.get('clasificacionMinima')?.touched
+      "
+    >
+      El rango de clasificacion mínimo es necesario
+    </small>
+  </div>
+  <div class="form-group">
     <label for="inputfechaInicio">Fecha inicio</label>
     <input
       type="date"
