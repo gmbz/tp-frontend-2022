@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
+import { HomeComponent } from './components/home/home.component';
 
 import { TournamentCreateComponent } from './components/tournament/tournament-create/tournament-create.component';
 import { TournamentListComponent } from './components/tournament/tournament-list/tournament-list.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
         (x) => x.TournamentModule
       ),
   },
+  { path: '', component: HomeComponent },
   // { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
@@ -25,4 +27,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
