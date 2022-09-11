@@ -4,6 +4,7 @@ import { AuthGuard } from 'src/app/auth.guard';
 
 import { TournamentCreateComponent } from './tournament-create/tournament-create.component';
 import { TournamentDetailComponent } from './tournament-detail/tournament-detail.component';
+import { TournamentEditComponent } from './tournament-edit/tournament-edit.component';
 import { TournamentListComponent } from './tournament-list/tournament-list.component';
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   { path: ':id', component: TournamentDetailComponent },
+  { path: 'edit/:id', component: TournamentEditComponent },
   
 ];
 

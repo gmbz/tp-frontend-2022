@@ -57,4 +57,8 @@ export class UserService {
   getToken() {
     return localStorage.getItem('x-access-token');
   }
+
+  getUserId() {
+    return localStorage.getItem('user-id');
+  }
 }
