@@ -1,1 +1,64 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #1c1c1f;
+}
+
+body * {
+  color: #d6d6d9;
+}
+
+.navbar-primary {
+  background-color: #005a82 !important;
+}
+
+.nav-link {
+  color: #fff !important;
+}
+
+.bg-primary,
+.btn-primary {
+  background-color: #005a82;
+}
+
+.btn-primary {
+  border-color: #005a82;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #005a82;
+}
+
+.table-hover tbody tr:hover * {
+  color: #c89b3c;
+  -webkit-transition: color 0.3s;
+  -moz-transition: color 0.3s;
+  -ms-transition: color 0.3s;
+  -o-transition: color 0.3s;
+  transition: color 0.3s;
+}
+
+.table tbody {
+  border: none !important;
+  background-color: #363b3f;
+}
+
+.table thead {
+  background-color: #c89b3c;
+}
+
+.table thead tr th {
+  color: #010a13;
+}
+/* 
+.card {
+    background-color: #363b3f;
+} */
+
+table tr {
+  border: #363b3f;
+}
+
+.card {
+  background-color: #363b3f;
+  border: none;
+}
