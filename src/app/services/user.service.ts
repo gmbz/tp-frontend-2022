@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class UserService {
   SERVER: string = 'http://localhost:4000/user';
   userSubject = new BehaviorSubject(false);
-  constructor(private httpClient: HttpClient, private router: Router) {}
+  constructor(private httpClient: HttpClient, private router: Router) { }
 
   // signUp(user: User): Observable<JwtResponse> {
   //   return this.httpClient
@@ -51,10 +51,20 @@ export class UserService {
 
   logout() {
     localStorage.removeItem('x-access-token');
+    localStorage.removeItem('user-id');
+    localStorage.removeItem('username');
     this.router.navigate(['/']);
   }
 
   getToken() {
     return localStorage.getItem('x-access-token');
+  }
+
+  getUserId() {
+    return localStorage.getItem('user-id');
+  }
+
+  getUsername() {
+    return localStorage.getItem('username');
   }
 }

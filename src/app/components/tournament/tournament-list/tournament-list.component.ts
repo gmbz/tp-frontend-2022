@@ -3,6 +3,7 @@ import { tap } from 'rxjs';
 
 import { TournamentsService } from 'src/app/services/tournaments.service';
 import { Tournament } from 'src/app/models/tournaments';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-tournament-list',
@@ -12,7 +13,7 @@ import { Tournament } from 'src/app/models/tournaments';
 export class TournamentListComponent implements OnInit {
   tournaments!: Tournament[];
 
-  constructor(private tournamentService: TournamentsService) {}
+  constructor(private tournamentService: TournamentsService) { }
 
   ngOnInit(): void {
     this.getAllTournaments();

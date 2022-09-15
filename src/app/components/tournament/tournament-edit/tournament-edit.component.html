@@ -1,0 +1,137 @@
+<form [formGroup]="tournamentForm" (ngSubmit)="edit()">
+  <div class="form-group">
+    <label for="inputNombre">Nombre del torneo</label>
+    <input
+      type="text"
+      formControlName="nombre"
+      class="form-control"
+      name="nombre"
+      id="inputNombre"
+      placeholder="Ingresar nombre del torneo"
+    />
+    <small
+      class="text-danger"
+      *ngIf="
+        tournamentForm.get('nombre')?.hasError('required') &&
+        tournamentForm.get('nombre')?.touched
+      "
+    >
+      El nombre del torneo es requerido
+    </small>
+  </div>
+  <div class="form-group">
+    <label for="inputPremio">Premio</label>
+    <input
+      type="text"
+      formControlName="premio"
+      class="form-control"
+      name="premio"
+      id="inputPremio"
+      placeholder="Ingresar password"
+    />
+    <small
+      class="text-danger"
+      *ngIf="
+        tournamentForm.get('premio')?.hasError('required') &&
+        tournamentForm.get('premio')?.touched
+      "
+    >
+      El premio es requerido
+    </small>
+  </div>
+  <div class="form-group">
+    <label for="inputCupo">Cupo</label>
+    <input
+      type="text"
+      formControlName="cupo"
+      class="form-control"
+      placeholder="Ingresar cupo"
+      [value]="tournamentForm.get('cupo')?.value"
+    />
+    <small
+      class="text-danger"
+      *ngIf="tournamentForm.get('cupo')?.hasError('required')"
+    >
+      El cupo es requerido
+    </small>
+  </div>
+  <div class="form-group">
+    <label for="inputClasificacionMinima"
+      >Rango mínimo necesario para participar</label
+    >
+    <select
+      class="form-select"
+      aria-label="Select Clasificacion Minima"
+      id="inputClasificacionMinima"
+      formControlName="clasificacionMinima"
+      name="clasificacionMinima"
+      placeholder="Seleccionar clasificaion mínima requerida"
+    >
+      <option value="{{ league.tier }}" *ngFor="let league of leagues">
+        <span>{{ league.name | titlecase }}</span>
+      </option>
+    </select>
+    <small
+      class="text-danger"
+      *ngIf="tournamentForm.get('clasificacionMinima')?.hasError('required')"
+    >
+      El rango de clasificacion mínimo es necesario
+    </small>
+  </div>
+  <div class="form-group">
+    <label for="inputfechaInicio">Fecha inicio</label>
+    <input
+      type="date"
+      formControlName="fechaInicio"
+      class="form-control"
+      name="fechaInicio"
+      id="inputfechaInicio"
+      placeholder="Ingresar fecha inicio"
+    />
+    <small
+      class="text-danger"
+      *ngIf="
+        tournamentForm.get('fechaInicio')?.hasError('required') &&
+        tournamentForm.get('fechaInicio')?.touched
+      "
+    >
+      La fecha inicio es requerida
+    </small>
+  </div>
+  <div class="form-group">
+    <label for="inputfechaFin">Fecha fin</label>
+    <input
+      type="date"
+      formControlName="fechaFin"
+      class="form-control"
+      name="fechaFin"
+      id="inputfechaFin"
+    />
+    <small
+      class="text-danger"
+      *ngIf="
+        tournamentForm.get('fechaFin')?.hasError('required') &&
+        tournamentForm.get('fechaFin')?.touched
+      "
+    >
+      La fecha de fin es requerida
+    </small>
+  </div>
+  <div class="form-check">
+    <input
+      type="checkbox"
+      formControlName="privado"
+      class="form-check-input"
+      name="privado"
+      id="inputPrivado"
+    />
+    <label class="form-check-label" for="inputPrivado">Privado</label>
+  </div>
+  <button
+    type="submit"
+    class="btn btn-primary"
+    [disabled]="tournamentForm.invalid"
+  >
+    Submit
+  </button>
+</form>

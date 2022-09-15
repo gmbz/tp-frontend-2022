@@ -22,39 +22,75 @@
   </div>
 </section>
 
+<div *ngIf="tournament?.autor?._id === userService.getUserId()">
+  <section class="card mt-3 shadow-sm">
+    <div class="card-body">
+      <div class="row row-cols-2 text-center">
+        <div class="col">
+          <button class="btn btn-danger" (click)="deleteTournament()">
+            <i class="fa-solid fa-trash-can"></i> Borrar Torneo
+          </button>
+        </div>
+        <div class="col">
+          <a
+            [routerLink]="['/tournaments/edit', tournament?._id]"
+            class="btn btn-warning "
+            ><i class="fa-solid fa-pen-to-square text-dark"></i> Editar Torneo</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
 <section class="card mt-3 shadow-sm">
   <div class="card-body">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th scope="col">Summoner</th>
-          <th scope="col">ELO</th>
-          <th scope="col">Partidas</th>
-          <th scope="col">Ganadas</th>
-          <th scope="col">Perdidas</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngIf="(tournament?.participantes || []).length == 0">
-          No hay participantes disponibles
-        </tr>
-        <tr *ngFor="let participante of tournament?.participantes">
-          <td>{{ participante.summonerName }}</td>
-          <td>
-            <img src="../../../../assets/rank-icons/{{ participante.rankedSolo.tierName| lowercase }}.png" alt="{{ participante.rankedSolo.tierName | lowercase }} icono" style="width: 35px;">
-            <span>{{ participante.rankedSolo.tierName | titlecase }} {{ participante.rankedSolo.rank }} ({{ participante.rankedSolo.leaguePoints }})</span>
-          </td>
-          <td>
-            {{ participante.rankedSolo.wins + participante.rankedSolo.losses }}
-          </td>
-          <td>
-            {{ participante.rankedSolo.wins }}
-          </td>
-          <td>
-            {{ participante.rankedSolo.losses }}
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Summoner</th>
+            <th scope="col">ELO</th>
+            <th scope="col">Partidas</th>
+            <th scope="col">Ganadas</th>
+            <th scope="col">Perdidas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="(tournament?.participantes || []).length === 0">
+            No hay participantes disponibles
+          </tr>
+          <tr *ngFor="let participante of tournament?.participantes">
+            <td>{{ participante.summonerName }}</td>
+            <td>
+              <img
+                src="../../../../assets/rank-icons/{{
+                  participante.rankedSolo.tierName | lowercase
+                }}.png"
+                alt="{{ participante.rankedSolo.tierName | lowercase }} icono"
+                style="width: 35px"
+              />
+              <span
+                >{{ participante.rankedSolo.tierName | titlecase }}
+                {{ participante.rankedSolo.rank }} ({{
+                  participante.rankedSolo.leaguePoints
+                }})</span
+              >
+            </td>
+            <td>
+              {{
+                participante.rankedSolo.wins + participante.rankedSolo.losses
+              }}
+            </td>
+            <td>
+              {{ participante.rankedSolo.wins }}
+            </td>
+            <td>
+              {{ participante.rankedSolo.losses }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </section>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -8,21 +10,28 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  user = {
-    username: '',
-    password: '',
-  };
+  registerForm: FormGroup;
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router, private formBuilder: FormBuilder) {
+    this.registerForm = this.formBuilder.group({
+      username: ["", Validators.required],
+      password: ["", Validators.required]
+    })
+  }
 
-  ngOnInit(): void {}
+  // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
+  ngOnInit(): void { }
 
   signUp() {
-    this.userService.signUp(this.user).subscribe({
+    const user: User = {
+      username: this.registerForm.get("username")?.value,
+      password: this.registerForm.get("password")?.value
+    }
+    this.userService.signUp(user).subscribe({
       next: (res) => {
         console.log(res);
         localStorage.setItem('x-access-token', res.token);
-        this.router.navigate(['/user']);
+        this.router.navigate(['/']);
       },
       error: (err) => console.log(err),
     });
