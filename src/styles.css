@@ -59,15 +59,14 @@ table tr {
   border: none;
 }
 
-
-
 input.form-control,
-input.form-control:focus {
+input.form-control:focus,
+select.form-select {
   background-color: #363b3f;
   border: none;
   color: #d6d6d9;
 }
 
 input.form-control::placeholder {
-  color: #d6d6d9;
+  color: #d2d2d3;
 }

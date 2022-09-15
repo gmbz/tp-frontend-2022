@@ -1,6 +1,6 @@
 <form [formGroup]="tournamentForm" (ngSubmit)="create()">
-  <div class="form-group">
-    <label for="inputNombre">Nombre del torneo</label>
+  <div class="form-group mb-3">
+    <label for="inputNombre" class="form-label">Nombre del torneo</label>
     <input
       type="text"
       formControlName="nombre"
@@ -19,8 +19,8 @@
       El nombre del torneo es requerido
     </small>
   </div>
-  <div class="form-group">
-    <label for="inputPremio">Premio</label>
+  <div class="form-group mb-3">
+    <label for="inputPremio" class="form-label">Premio</label>
     <input
       type="text"
       formControlName="premio"
@@ -39,8 +39,8 @@
       El premio es requerido
     </small>
   </div>
-  <div class="form-group">
-    <label for="inputCupo">Cupo</label>
+  <div class="form-group mb-3">
+    <label for="inputCupo" class="form-label">Cupo</label>
     <input
       type="text"
       formControlName="cupo"
@@ -59,8 +59,8 @@
       El cupo es requerido
     </small>
   </div>
-  <div class="form-group">
-    <label for="inputClasificacionMinima"
+  <div class="form-group mb-3">
+    <label for="inputClasificacionMinima" class="form-label"
       >Rango mínimo necesario para participar</label
     >
     <select
@@ -90,8 +90,8 @@
       El rango de clasificacion mínimo es necesario
     </small>
   </div>
-  <div class="form-group">
-    <label for="inputfechaInicio">Fecha inicio</label>
+  <div class="form-group mb-3">
+    <label for="inputfechaInicio" class="form-label">Fecha inicio</label>
     <input
       type="date"
       formControlName="fechaInicio"
@@ -110,8 +110,8 @@
       La fecha inicio es requerida
     </small>
   </div>
-  <div class="form-group">
-    <label for="inputfechaFin">Fecha fin</label>
+  <div class="form-group mb-3">
+    <label for="inputfechaFin" class="form-label">Fecha fin</label>
     <input
       type="date"
       formControlName="fechaFin"
@@ -130,7 +130,7 @@
       La fecha de fin es requerida
     </small>
   </div>
-  <div class="form-check">
+  <div class="form-check mb-3">
     <input
       type="checkbox"
       formControlName="privado"
@@ -140,11 +140,13 @@
     />
     <label class="form-check-label" for="inputPrivado">Privado</label>
   </div>
-  <button
-    type="submit"
-    class="btn btn-primary"
-    [disabled]="tournamentForm.invalid"
-  >
-    Submit
-  </button>
+  <div class="d-grid gap-2 mx-auto col-6">
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="tournamentForm.invalid"
+    >
+      Crear torneo
+    </button>
+  </div>
 </form>

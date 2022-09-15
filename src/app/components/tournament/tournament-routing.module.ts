@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from 'src/app/auth.guard';
+import { HomeComponent } from '../home/home.component';
 
 import { TournamentCreateComponent } from './tournament-create/tournament-create.component';
 import { TournamentDetailComponent } from './tournament-detail/tournament-detail.component';
 import { TournamentEditComponent } from './tournament-edit/tournament-edit.component';
-import { TournamentListComponent } from './tournament-list/tournament-list.component';
+// import { TournamentListComponent } from './tournament-list/tournament-list.component';
 
 const routes: Routes = [
-  { path: '', component: TournamentListComponent },
+  { path: '', component: HomeComponent },
   {
     path: 'create',
     component: TournamentCreateComponent,

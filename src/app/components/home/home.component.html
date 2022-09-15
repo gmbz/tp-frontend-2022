@@ -1,3 +1,7 @@
+<section class="text-center">
+  <img src="../../../assets/lol-icons/LoL_Logo_Rendered_LARGE.png" alt="lol-logo" class="img-fluid" style="width: 60%;">
+</section>
+
 <div class="my-3">
   <app-search (search)="handleSearch($event)"></app-search>
 </div>
@@ -8,13 +12,11 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th scope="col">Nombre torneo</th>
-            <th scope="col">Creador</th>
-            <th scope="col">Premio</th>
-            <th scope="col">Rango Minimo</th>
-            <th scope="col">Fecha inicio</th>
-            <th scope="col">Fecha fin</th>
-            <th scope="col"></th>
+            <th scope="col">NOMBRE</th>
+            <th scope="col">CREADOR</th>
+            <th scope="col">CLASIFICACION</th>
+            <th scope="col">INICIO</th>
+            <th scope="col">FIN</th>
           </tr>
         </thead>
         <tbody>
@@ -29,7 +31,6 @@
           >
             <td>{{ tournament.nombre }}</td>
             <td>{{ tournament.autor?.username }}</td>
-            <td>{{ tournament.premio }}</td>
             <td>
               <img
                 src="../../../../assets/rank-icons/{{
