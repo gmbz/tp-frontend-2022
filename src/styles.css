@@ -15,9 +15,16 @@ body * {
   color: #fff !important;
 }
 
-.btn-primary {
+.btn-primary,
+.btn-primary:disabled {
   background-color: #005a82;
   border-color: #005a82;
+}
+
+.btn-primary:hover {
+  background-color: #005a82;
+  border-color: #005a82;
+  color: #c89b3c;
 }
 
 .table-hover tbody tr:hover * {
@@ -42,10 +49,6 @@ body * {
 .table thead tr th {
   color: #010a13;
 }
-/* 
-.card {
-    background-color: #363b3f;
-} */
 
 table tr {
   border: #363b3f;
@@ -54,4 +57,17 @@ table tr {
 .card {
   background-color: #363b3f;
   border: none;
+}
+
+
+
+input.form-control,
+input.form-control:focus {
+  background-color: #363b3f;
+  border: none;
+  color: #d6d6d9;
+}
+
+input.form-control::placeholder {
+  color: #d6d6d9;
 }
