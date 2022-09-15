@@ -10,6 +10,7 @@ import { TournamentsService } from 'src/app/services/tournaments.service';
 })
 export class HomeComponent implements OnInit {
   tournaments!: Tournament[];
+  search_value = "";
 
   constructor(private tournamentService: TournamentsService) { }
 
@@ -21,6 +22,10 @@ export class HomeComponent implements OnInit {
     this.tournamentService.getAllTournaments().pipe(
       tap((tournaments: Tournament[]) => this.tournaments = tournaments)
     ).subscribe();
+  }
+
+  handleSearch(value: string) {
+    this.search_value = value;
   }
 
 }

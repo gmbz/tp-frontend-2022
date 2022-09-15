@@ -7,7 +7,7 @@ body * {
   color: #d6d6d9;
 }
 
-.navbar-primary {
+.navbar-dark {
   background-color: #005a82 !important;
 }
 
@@ -15,21 +15,14 @@ body * {
   color: #fff !important;
 }
 
-.bg-primary,
 .btn-primary {
   background-color: #005a82;
-}
-
-.btn-primary {
   border-color: #005a82;
-}
-
-.table-hover tbody tr:hover {
-  background-color: #005a82;
 }
 
 .table-hover tbody tr:hover * {
   color: #c89b3c;
+  background-color: #005a82;
   -webkit-transition: color 0.3s;
   -moz-transition: color 0.3s;
   -ms-transition: color 0.3s;

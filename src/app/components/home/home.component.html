@@ -1,40 +1,54 @@
-<section class="card text-white mb-3">
-  <div class="table-responsive">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th scope="col">Nombre torneo</th>
-          <th scope="col">Creador</th>
-          <th scope="col">Premio</th>
-          <th scope="col">Rango Minimo</th>
-          <th scope="col">Fecha inicio</th>
-          <th scope="col">Fecha fin</th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngIf="(tournaments || []).length === 0">
-          No hay torneos disponibles
-        </tr>
+<div class="my-3">
+  <app-search (search)="handleSearch($event)"></app-search>
+</div>
 
-        <tr *ngFor="let tournament of tournaments" [routerLink]="['/tournaments', tournament._id]" style="cursor: pointer;">
-          <td>{{ tournament.nombre }}</td>
-          <td>{{ tournament.autor?.username }}</td>
-          <td>{{ tournament.premio }}</td>
-          <td>
-            <img
-              src="../../../../assets/rank-icons/{{
-                tournament.clasificacionMinima?.name | lowercase
-              }}.png"
-              alt="{{ tournament.clasificacionMinima?.name | lowercase }} icono"
-              style="width: 35px"
-            />
-            <span>{{ tournament.clasificacionMinima?.name | titlecase }}</span>
-          </td>
-          <td>{{ tournament.fechaInicio | date: "dd/MM/yyyy" }}</td>
-          <td>{{ tournament.fechaFin | date: "dd/MM/yyyy" }}</td>
-        </tr>
-      </tbody>
-    </table>
+<section class="card text-white mb-3">
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Nombre torneo</th>
+            <th scope="col">Creador</th>
+            <th scope="col">Premio</th>
+            <th scope="col">Rango Minimo</th>
+            <th scope="col">Fecha inicio</th>
+            <th scope="col">Fecha fin</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="(tournaments || []).length === 0">
+            No hay torneos disponibles
+          </tr>
+
+          <tr
+            *ngFor="let tournament of tournaments | search: search_value"
+            [routerLink]="['/tournaments', tournament._id]"
+            style="cursor: pointer"
+          >
+            <td>{{ tournament.nombre }}</td>
+            <td>{{ tournament.autor?.username }}</td>
+            <td>{{ tournament.premio }}</td>
+            <td>
+              <img
+                src="../../../../assets/rank-icons/{{
+                  tournament.clasificacionMinima?.name | lowercase
+                }}.png"
+                alt="{{
+                  tournament.clasificacionMinima?.name | lowercase
+                }} icono"
+                style="width: 35px"
+              />
+              <span>{{
+                tournament.clasificacionMinima?.name | titlecase
+              }}</span>
+            </td>
+            <td>{{ tournament.fechaInicio | date: "dd/MM/yyyy" }}</td>
+            <td>{{ tournament.fechaFin | date: "dd/MM/yyyy" }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </section>

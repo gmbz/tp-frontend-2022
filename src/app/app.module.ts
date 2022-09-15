@@ -11,9 +11,12 @@ import { ToastrModule } from 'ngx-toastr';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { HomeComponent } from './components/home/home.component';
+import { SearchPipe } from './pipes/search.pipe';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, SearchPipe, SearchComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -21,6 +24,8 @@ import { HomeComponent } from './components/home/home.component';
     BrowserAnimationsModule,
     CommonModule,
     ToastrModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     AuthGuard,
