@@ -1,0 +1,82 @@
+08/07/2022
+arrancar la semana que viene con el proyecto
+Cosas para hacer:
+- mostrar el listado de torneos en la pagina principal
+- login y registro de usuarios
+- crud de torneos 
+- buscador de torneos en la pagina principal que filtre el listado por nombre
+- mostrar detalle de un torneo
+- en el detalle del torneo, si el usuario es el dueño, que se le muestren las opciones para editar y borrar el torneo
+
+la idea es hacer el crud de torneos para la siguiente reunion
+
+22/07/2022
+se hizo el listado, detalle y la creacion de torneos y el registro y login de usuarios
+
+para esta reunion habia que tener hecho el crud de torneos, falto hacer el edit y delete pero se "compenso" con el login y register de usuarios
+
+para la proxima reunion hay que hacer el edit y el delete
+
+05/08/2022
+no se avanzó con nada en las ultimas dos semanas, estuve enfocado en el backend
+
+retomando, se hizo:
+- mostrar el listado de torneos en la pagina principal
+- login y registro de usuarios
+- listado y creacion de torneos con validacion de formulario (inputs requeridos)
+- mostrar detalle de un torneo
+
+falta:
+- buscador de torneos en la pagina principal que filtre el listado por nombre
+- edit y delete de torneos (solo puede hacerlo el creador)
+- en el detalle del torneo, si el usuario es el dueño, que se le muestren las opciones para editar y borrar el torneo
+
+nuevas cosas para hacer:
+- cambiar el estilo de la web para adaptarlo a los colores y tematica del juego (hasta ahora se hizo todo con bootstrap)
+- agregar imagenes del juego (logo en el navbar para ir al home, mostrar una imagen en el home, etc)
+- mejorar los formularios que se ven feos
+
+para la proxima reunion hay que hacer el edit y delete de torneos, esto solo lo puede hacer el creador
+
+19/08/2022
+no se avanzó con nada en las ultimas dos semanas, estuve enfocado en el backend
+
+siguen los mismos objetivos que el refinamiento anterior
+
+02/09/2022
+se avanzo un poco con los estilos de la web, pero como todo me queda feo va a tomar un poco mas de tiempo
+tambien estoy haciendo el edit y el delete, ya esta hecho en el backend y del lado del front no es mucho (solo un boton para el delete y un formulario para el edit)
+
+para la proxima reunion este tp ya va a estar entregado con todos las cosas que faltan hechas
+
+falta:
+- buscador de torneos en la pagina principal que filtre el listado por nombre
+- agregar imagenes del juego (logo en el navbar para ir al home, mostrar una imagen en el home, etc)
+
+
+en proceso:
+- cambiar el estilo de la web para adaptarlo a los colores y tematica del juego (hasta ahora se hizo todo con bootstrap)
+- mejorar los formularios que se ven feos
+- edit y delete de torneos (solo puede hacerlo el creador)
+- en el detalle del torneo, si el usuario es el dueño, que se le muestren las opciones para editar y borrar el torneo
+
+19/09/2022
+tp entregado con todo lo pendiente hecho
+se hizo:
+- buscador de torneos en la pagina principal que filtre el listado por nombre
+- agregar imagenes del juego (logo en el navbar para ir al home, mostrar una imagen en el home, etc)
+- cambiar el estilo de la web para adaptarlo a los colores y tematica del juego (hasta ahora se hizo todo con bootstrap)
+- mejorar los formularios que se ven feos
+- edit y delete de torneos (solo puede hacerlo el creador)
+- en el detalle del torneo, si el usuario es el dueño, que se le muestren las opciones para editar y borrar el torneo
+
+falta:
+- editar el readme del repositorio
+- subir este archivo el repositorio
+
+aunque este entregado el tp se va a ir mejorando, en principio las proximas cosas para hacer son:
+- que el creador pueda agregar y sacar gente del torneo
+- que si un torneo es publico, la gente pueda inscribirse sin necesidad que el creador lo haga
+- agregar nuevos tipos de torneo (torneos por equipos, 1vs1, fase de grupos, octavos de final, etc)
+- agregar que la gente pueda buscar otras personas para jugar (es una funcionalidad por fuera de los torneos, hay que refinarlo todavia)
+
